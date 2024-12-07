@@ -131,3 +131,97 @@ for(let x=5;x>0;x--){
 }
 
 console.log("Blast off!")
+
+//FUNCTIONS AND SCOPE
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greet("Alice"); // Output: Hello, Alice!
+greet("Bob");   // Output: Hello, Bob!
+
+function add(a, b) {
+    return a + b;
+}
+
+let result = add(3, 5);
+console.log(result); // Output: 8
+
+const multiply = function (x, y) {
+    return x * y;
+};
+
+
+
+console.log(multiply(4, 5)); // Output: 20
+
+// A shorter syntax for writing functions. Arrow functions are great 
+// for simple functions and don’t have their own this binding.
+
+const subtract = (x, y) => x - y;
+
+console.log(subtract(10, 3)); // Output: 7
+
+let globalVar = "I am global";
+
+function showScope() {
+    let localVar = "I am local";
+    console.log(globalVar); // Accessible
+    console.log(localVar); // Accessible
+}
+
+showScope();
+console.log(globalVar); // Accessible
+console.log(localVar); // Error: localVar is not defined
+
+
+if (true) {
+    let blockScoped = "Inside block";
+    console.log(blockScoped); // Accessible
+}
+
+console.log(blockScoped); // Error: blockScoped is not defined
+
+// Function to calculate area of a rectangle
+function calculateArea(length, width) {
+    return length * width;
+}
+
+let area = calculateArea(5, 3);
+console.log("Area:", area); // Output: 15
+
+// Arrow function to greet
+const greetUser = (userName) => {
+    return `Hello, ${userName}!`;
+};
+
+console.log(greetUser("Alice")); // Output: Hello, Alice!
+
+// Scope example
+let outsideVar = "I'm outside!";
+
+function showVariables() {
+    let insideVar = "I'm inside!";
+    console.log(outsideVar); // Accessible
+    console.log(insideVar);  // Accessible
+}
+
+showVariables();
+console.log(outsideVar); // Accessible
+console.log(insideVar); // Error: insideVar is not defined
+
+function toFahrenheit(celsius) {
+    return celsius * (9 / 5) + 32;
+}
+
+console.log(toFahrenheit(30)); // Output: 86
+
+function calculateTotal(prices) {
+    let total = 0;
+    for (let price of prices) {
+        total += price;
+    }
+    return total;
+}
+
+console.log(calculateTotal([10, 20, 5])); // Output: 35
